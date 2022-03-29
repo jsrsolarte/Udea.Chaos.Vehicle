@@ -5,6 +5,12 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udea.Chaos.Vehicle.Api", "Udea.Chaos.Vehicle.Api\Udea.Chaos.Vehicle.Api.csproj", "{2338A917-2CDD-44D9-A1A7-72A7398B9B86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udea.Chaos.Vehicle.Infrastructure", "Udea.Chaos.Vehicle.Infrastructure\Udea.Chaos.Vehicle.Infrastructure.csproj", "{322532DA-F9DF-42E8-8ECD-0EBBD8B91A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udea.Chaos.Vehicle.Domain", "Udea.Chaos.Vehicle.Domain\Udea.Chaos.Vehicle.Domain.csproj", "{1CB54678-0B0F-4D73-9EA7-468F1925B945}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udea.Chaos.Vehicle.Application", "Udea.Chaos.Vehicle.Application\Udea.Chaos.Vehicle.Application.csproj", "{D1BE5408-6112-4387-9E10-3DACD89FC771}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{2338A917-2CDD-44D9-A1A7-72A7398B9B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2338A917-2CDD-44D9-A1A7-72A7398B9B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2338A917-2CDD-44D9-A1A7-72A7398B9B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{322532DA-F9DF-42E8-8ECD-0EBBD8B91A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{322532DA-F9DF-42E8-8ECD-0EBBD8B91A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{322532DA-F9DF-42E8-8ECD-0EBBD8B91A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{322532DA-F9DF-42E8-8ECD-0EBBD8B91A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB54678-0B0F-4D73-9EA7-468F1925B945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB54678-0B0F-4D73-9EA7-468F1925B945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB54678-0B0F-4D73-9EA7-468F1925B945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB54678-0B0F-4D73-9EA7-468F1925B945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1BE5408-6112-4387-9E10-3DACD89FC771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1BE5408-6112-4387-9E10-3DACD89FC771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1BE5408-6112-4387-9E10-3DACD89FC771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1BE5408-6112-4387-9E10-3DACD89FC771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
