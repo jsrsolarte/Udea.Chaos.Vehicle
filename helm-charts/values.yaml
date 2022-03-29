@@ -1,0 +1,45 @@
+environment: "#{environment}#"
+
+registrySecret: "acr-secret"
+aadPodIdBinding: "aapodidbindingchaos"
+
+image:
+  repository: "#{acrName}#/#{imageName}#"
+  tag: #{Build.BuildId}#
+
+service:
+  type: ClusterIP
+  port: 80
+  httpsPort: 443
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+livenessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 30
+  timeoutSeconds: 5
+readinessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 30
+  timeoutSeconds: 5
+
+replicaCount: 1
+
+autoscaling:
+  enabled: #{autoscalingEnabled}#
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+cosmosdb:
+  sql:
+    database:
+      name: VehicleDb
+      connectionString: "#{cosmosdbConnectionString}#"

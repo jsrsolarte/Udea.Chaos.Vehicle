@@ -8,6 +8,9 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Udea.Chaos.Vehicle.Api/Udea.Chaos.Vehicle.Api.csproj", "Udea.Chaos.Vehicle.Api/"]
+COPY ["Udea.Chaos.Vehicle.Infrastructure/Udea.Chaos.Vehicle.Infrastructure.csproj", "Udea.Chaos.Vehicle.Infrastructure/"]
+COPY ["Udea.Chaos.Vehicle.Domain/Udea.Chaos.Vehicle.Domain.csproj", "Udea.Chaos.Vehicle.Domain/"]
+COPY ["Udea.Chaos.Vehicle.Application/Udea.Chaos.Vehicle.Application.csproj", "Udea.Chaos.Vehicle.Application/"]
 RUN dotnet restore "Udea.Chaos.Vehicle.Api/Udea.Chaos.Vehicle.Api.csproj"
 COPY . .
 WORKDIR "/src/Udea.Chaos.Vehicle.Api"

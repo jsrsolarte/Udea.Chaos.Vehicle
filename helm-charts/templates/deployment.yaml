@@ -1,0 +1,60 @@
+{{- $environment := .Values.environment }}
+{{- $aadPodIdBinding := .Values.aadPodIdBinding }}
+{{- $registrySecret := .Values.registrySecret }}
+{{- $imageRepository := .Values.image.repository }}
+{{- $imageTag := .Values.image.tag }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      name: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        name: {{ .Chart.Name }}
+        {{- with $aadPodIdBinding }}
+        aadpodidbinding: {{ $aadPodIdBinding }}
+        {{- end }}
+    spec:
+      imagePullSecrets:
+        - name: {{ $registrySecret }}    
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ $imageRepository }}:{{ $imageTag }}
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: {{ $environment }}
+            - name: CosmosSettings__ConnectionString
+              value: {{ .Values.cosmosdb.sql.database.connectionString }}
+            - name: CosmosSettings__DatabaseName
+              value: {{ .Values.cosmosdb.sql.database.name }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+            - name: https
+              containerPort: 443
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
