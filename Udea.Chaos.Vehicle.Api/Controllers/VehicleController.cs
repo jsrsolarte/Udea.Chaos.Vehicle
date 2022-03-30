@@ -24,6 +24,12 @@ namespace Udea.Chaos.Vehicle.Api.Controllers
             return await _mediator.Send(new GetAllVehicles());
         }
 
+        [HttpGet("by-owner/{ownerId}")]
+        public async Task<IEnumerable<VehicleDto>> GetVehiclesByOwner(Guid ownerId)
+        {
+            return await _mediator.Send(new GetAllVehiclesByOwner(ownerId));
+        }
+
         [HttpPost]
         public async Task CreateVehicle(CreateVehicle createVehicle)
         {
