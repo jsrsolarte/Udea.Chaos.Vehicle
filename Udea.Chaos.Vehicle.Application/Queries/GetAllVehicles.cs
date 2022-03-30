@@ -8,5 +8,5 @@ using Udea.Chaos.Vehicle.Application.Dtos;
 
 namespace Udea.Chaos.Vehicle.Application.Queries
 {
-    public record GetAllVehicles(): IRequest<IEnumerable<VehicleDto>>;
+    public record GetAllVehicles(): IRequest<IEnumerable<Guid>>;
 }

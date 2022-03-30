@@ -15,7 +15,7 @@ namespace Udea.Chaos.Vehicle.Application.Commands
 
         protected override async Task Handle(CreateVehicle request, CancellationToken cancellationToken)
         {
-            await _vehicleRepository.AddAsync(request.ToEntity());
+            await _vehicleRepository.AddAsync(request.ToEntity(), cancellationToken);
         }
     }
 }

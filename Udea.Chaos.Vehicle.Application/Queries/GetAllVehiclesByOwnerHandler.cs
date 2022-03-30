@@ -17,8 +17,8 @@ namespace Udea.Chaos.Vehicle.Application.Queries
 
         public async Task<IEnumerable<VehicleDto>> Handle(GetAllVehiclesByOwner request, CancellationToken cancellationToken)
         {
-            var spec = new GetVehicleByOwnerIdSpec(request.ownerId);
-            var vehicles = await _vechicleRepository.ListAsync(spec);
+            var spec = new GetVehicleByOwnerIdSpec(request.OwnerId);
+            var vehicles = await _vechicleRepository.ListAsync(spec, cancellationToken);
 
             return vehicles.Select(_ => _.ToDto());
         }

@@ -3,5 +3,5 @@ using Udea.Chaos.Vehicle.Application.Dtos;
 
 namespace Udea.Chaos.Vehicle.Application.Queries
 {
-    public record GetAllVehiclesByOwner(Guid OwnerId) : IRequest<IEnumerable<VehicleDto>>;
+    public record GetVehicleDetail(Guid Id) : IRequest<VehicleDto?>;
 }
