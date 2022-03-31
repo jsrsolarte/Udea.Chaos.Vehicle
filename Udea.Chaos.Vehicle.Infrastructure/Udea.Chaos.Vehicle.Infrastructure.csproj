@@ -13,12 +13,14 @@
   <ItemGroup>
     <PackageReference Include="Ardalis.Specification" Version="6.0.1" />
     <PackageReference Include="AspNetCore.HealthChecks.CosmosDb" Version="6.0.2" />
+    <PackageReference Include="Flurl.Http" Version="3.2.2" />
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.26.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Udea.Chaos.Vehicle.Application\Udea.Chaos.Vehicle.Application.csproj" />
     <ProjectReference Include="..\Udea.Chaos.Vehicle.Domain\Udea.Chaos.Vehicle.Domain.csproj" />
   </ItemGroup>
 

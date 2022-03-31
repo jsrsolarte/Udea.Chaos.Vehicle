@@ -1,5 +1,8 @@
+using Flurl.Http.Configuration;
 using MediatR;
 using System.Reflection;
+using Udea.Chaos.Owner.Infrastructure.Adapters;
+using Udea.Chaos.Vehicle.Application.Ports;
 using Udea.Chaos.Vehicle.Infrastructure.Extensions;
 
 var applicationAssembly = Assembly.Load("Udea.Chaos.Vehicle.Application");
@@ -8,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 // Add services to the container.
 builder.Services.AddHealthChecks();
+builder.Services.AddTransient(typeof(IFlurlClientFactory), typeof(PerBaseUrlFlurlClientFactory));
+builder.Services.AddTransient<IJourneyService, JourneyService>();
 builder.Services.AddPersistence(config);
 builder.Services.AddMediatR(applicationAssembly, typeof(Program).Assembly);
 

@@ -25,7 +25,7 @@ namespace Udea.Chaos.Vehicle.Api.Controllers
         }
 
         [HttpGet("detail/{id}")]
-        public async Task<VehicleDto?> GetOwnerDetail(Guid id)
+        public async Task<VehicleWithJourneysDto?> GetOwnerDetail(Guid id)
         {
             var owner = await _mediator.Send(new GetVehicleDetail(id));
 

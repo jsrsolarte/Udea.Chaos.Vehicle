@@ -1,4 +1,5 @@
-﻿using Udea.Chaos.Vehicle.Application.Commands;
+﻿using Udea.Chaos.Journey.Application.Dtos;
+using Udea.Chaos.Vehicle.Application.Commands;
 using Udea.Chaos.Vehicle.Application.Dtos;
 
 namespace Udea.Chaos.Vehicle.Application.Extensions
@@ -8,6 +9,11 @@ namespace Udea.Chaos.Vehicle.Application.Extensions
         public static VehicleDto ToDto(this Domain.Entities.Vehicle vehicle)
         {
             return new VehicleDto(vehicle.Plate, vehicle.Brand, vehicle.Model, vehicle.Type, vehicle.Vin, vehicle.Year, vehicle.OwnerId);
+        }
+
+        public static VehicleWithJourneysDto ToDto(this Domain.Entities.Vehicle vehicle, IEnumerable<JourneyDto> journeys)
+        {
+            return new VehicleWithJourneysDto(vehicle.Plate, vehicle.Brand, vehicle.Model, vehicle.Type, vehicle.Vin, vehicle.Year, vehicle.OwnerId, journeys);
         }
 
         public static Domain.Entities.Vehicle ToEntity(this CreateVehicle vehicle)
