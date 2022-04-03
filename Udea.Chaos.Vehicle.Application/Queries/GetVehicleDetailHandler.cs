@@ -20,7 +20,7 @@ namespace Udea.Chaos.Vehicle.Application.Queries
         public async Task<VehicleWithJourneysDto?> Handle(GetVehicleDetail request, CancellationToken cancellationToken)
         {
             var vehicle = await _vehicleRepository.GetByIdAsync(request.Id.ToString(), cancellationToken);
-            var journeys = await _journeyService.GetVehicles(request.Id);
+            var journeys = await _journeyService.GetJourneys(request.Id);
             if (vehicle == null) return null;
             return vehicle.ToDto(journeys);
         }
