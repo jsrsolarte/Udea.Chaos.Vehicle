@@ -38,6 +38,8 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   targetMemoryUtilizationPercentage: 80
 
+UrlJourneyApi: http://chaos-journey-api/api/journey
+
 cosmosdb:
   sql:
     database:
