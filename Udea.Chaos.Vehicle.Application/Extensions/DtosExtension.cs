@@ -8,12 +8,12 @@ namespace Udea.Chaos.Vehicle.Application.Extensions
     {
         public static VehicleDto ToDto(this Domain.Entities.Vehicle vehicle)
         {
-            return new VehicleDto(vehicle.Plate, vehicle.Brand, vehicle.Model, vehicle.Type, vehicle.Vin, vehicle.Year, vehicle.OwnerId);
+            return new VehicleDto(vehicle.Id, vehicle.Plate, vehicle.Brand, vehicle.Model, vehicle.Type, vehicle.Vin, vehicle.Year, vehicle.OwnerId);
         }
 
         public static VehicleWithJourneysDto ToDto(this Domain.Entities.Vehicle vehicle, IEnumerable<JourneyDto> journeys)
         {
-            return new VehicleWithJourneysDto(vehicle.Plate, vehicle.Brand, vehicle.Model, vehicle.Type, vehicle.Vin, vehicle.Year, vehicle.OwnerId, journeys);
+            return new VehicleWithJourneysDto(vehicle.Id, vehicle.Plate, vehicle.Brand, vehicle.Model, vehicle.Type, vehicle.Vin, vehicle.Year, vehicle.OwnerId, journeys);
         }
 
         public static Domain.Entities.Vehicle ToEntity(this CreateVehicle vehicle)

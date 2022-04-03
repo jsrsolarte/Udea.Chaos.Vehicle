@@ -3,6 +3,7 @@
 namespace Udea.Chaos.Vehicle.Application.Dtos
 {
     public record VehicleWithJourneysDto(
+        string Id,
         string Plate,
         string Brand,
         string Model,
@@ -11,5 +12,5 @@ namespace Udea.Chaos.Vehicle.Application.Dtos
         int Year,
         string OwnerId,
         IEnumerable<JourneyDto> Journeys
-    ) : VehicleDto(Plate, Brand, Model, Type, Vin, Year, OwnerId);
+    ) : VehicleDto(Id, Plate, Brand, Model, Type, Vin, Year, OwnerId);
 }
