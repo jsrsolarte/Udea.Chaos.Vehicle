@@ -35,6 +35,8 @@ spec:
               value: {{ .Values.cosmosdb.sql.database.connectionString }}
             - name: CosmosSettings__DatabaseName
               value: {{ .Values.cosmosdb.sql.database.name }}
+            - name: UrlJourneyApi
+              value: {{ .Values.services.journey.url }}
           ports:
             - name: http
               containerPort: 80
